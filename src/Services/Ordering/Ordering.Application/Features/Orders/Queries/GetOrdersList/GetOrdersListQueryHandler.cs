@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Ordering.Application.Contracts.Persistence;
-using Ordering.Application.Features.Orders.Queries.GetOrdersList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ordering.Application.Features.Orders.Queries.GetOrderList
+namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
 {
     public class GetOrdersListQueryHandler : IRequestHandler<GetOrdersListQuery, List<OrdersVm>>
     {
@@ -26,7 +25,7 @@ namespace Ordering.Application.Features.Orders.Queries.GetOrderList
         {
             var orderList = await _orderRepository.GetOrdersByUserName(request.UserName);
 
-            return  _mapper.Map<List<OrdersVm>>(orderList);
+            return _mapper.Map<List<OrdersVm>>(orderList);
         }
     }
 }
